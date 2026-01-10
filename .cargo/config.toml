@@ -1,0 +1,8 @@
+[patch."https://github.com/pycogram/agentropic-core"]
+agentropic-core = { version = "0.1.0", path = "../agentropic-core" }
+
+[patch."https://github.com/pycogram/agentropic-messaging"]
+agentropic-messaging = { version = "0.1.0", path = "../agentropic-messaging" }
+
+[patch."https://github.com/pycogram/agentropic-cognition"]
+agentropic-cognition = { version = "0.1.0", path = "../agentropic-cognition" }
