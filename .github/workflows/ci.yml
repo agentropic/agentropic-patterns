@@ -74,4 +74,20 @@ jobs:
         cargo run --example coalition_example
         cargo run --example blackboard_example
 
+  test-windows:
+    name: Test on Windows
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: dtolnay/rust-toolchain@stable
+    - uses: Swatinem/rust-cache@v2
+    - run: cargo test --verbose
 
+  test-macos:
+    name: Test on macOS
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: dtolnay/rust-toolchain@stable
+    - uses: Swatinem/rust-cache@v2
+    - run: cargo test --verbose
