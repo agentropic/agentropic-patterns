@@ -27,9 +27,3 @@ fn main() {
     println!("Market: {}", market.name());
     println!("Auctions: {}", market.auctions().len());
 }
-", market.auctions().len());
-}market.auctions().len());
-}market.auctions().len());
-}market.auctions().len());
-}rket.auctions().len());
-}
