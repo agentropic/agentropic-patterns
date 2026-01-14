@@ -26,7 +26,7 @@ fn main() {
     // Consensus decision
     let mut consensus = Consensus::new(0.7);
     for member in swarm.members() {
-        consensus.vote(member.clone(), "target_north");
+        consensus.vote(*member, "target_north"); // ← FIXED: Use dereference
     }
 
     if consensus.is_reached() {
