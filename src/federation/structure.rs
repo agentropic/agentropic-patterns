@@ -24,9 +24,9 @@ impl Federation {
 
     /// Add member
     pub fn add_member(&mut self, agent_id: AgentId) -> bool {
-        let added = self.members.insert(agent_id.clone());
+        let added = self.members.insert(agent_id); // ← FIXED: Removed .clone()
         if added {
-            self.weights.insert(agent_id, 1.0); // Default weight
+            self.weights.insert(agent_id, 1.0);
         }
         added
     }

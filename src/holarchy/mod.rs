@@ -1,9 +1,9 @@
-﻿//! Holarchic organization patterns
+//! Holarchic organization patterns
 
-/// Holarchy structure
-pub mod holarchy;
 /// Holon (autonomous unit)
 pub mod holon;
+/// Holarchy structure
+pub mod structure;
 
-pub use holarchy::Holarchy;
 pub use holon::{Holon, HolonType};
+pub use structure::Holarchy;

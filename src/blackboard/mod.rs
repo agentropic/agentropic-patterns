@@ -1,9 +1,9 @@
-﻿//! Blackboard architecture patterns
+//! Blackboard architecture patterns
 
-/// Blackboard structure
-pub mod blackboard;
 /// Knowledge source
 pub mod knowledge_source;
+/// Blackboard structure
+pub mod structure;
 
-pub use blackboard::Blackboard;
 pub use knowledge_source::{KnowledgeSource, KnowledgeSourceType};
+pub use structure::Blackboard;

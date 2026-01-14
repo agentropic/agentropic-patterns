@@ -2,11 +2,11 @@
 
 /// Task delegation
 pub mod delegation;
-/// Hierarchy structure
-pub mod hierarchy;
 /// Organizational levels
 pub mod level;
+/// Hierarchy structure
+pub mod structure;
 
 pub use delegation::Delegation;
-pub use hierarchy::Hierarchy;
 pub use level::{Level, LevelType};
+pub use structure::Hierarchy;
