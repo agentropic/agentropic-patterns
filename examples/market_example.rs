@@ -17,10 +17,12 @@ fn main() {
     // Determine winner
     if let Some(winner) = auction.winner() {
         println!("Winner bid: ${}", winner.amount());
+
         // Allocate resource
-        market
-            .allocation_mut()
-            .allocate(winner.bidder().clone(), "gpu_hours");
+        market.allocation_mut().allocate(
+            *winner.bidder(), // ← FIXED: Use dereference instead of clone
+            "gpu_hours",
+        );
     }
 
     market.add_auction(auction);

@@ -19,8 +19,8 @@ fn coalition_formation() {
     let agent1 = AgentId::new();
     let agent2 = AgentId::new();
 
-    formation.add_candidate(agent1.clone());
-    formation.add_candidate(agent2.clone());
+    formation.add_candidate(agent1);
+    formation.add_candidate(agent2);
     formation.select(agent1);
 
     assert!(formation.is_complete());

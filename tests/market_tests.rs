@@ -20,8 +20,8 @@ fn allocation() {
     let mut allocation = Allocation::new();
     let agent = AgentId::new();
 
-    allocation.allocate(agent.clone(), "cpu_1");
-    allocation.allocate(agent.clone(), "memory_2gb");
+    allocation.allocate(agent, "cpu_1"); // ← FIXED
+    allocation.allocate(agent, "memory_2gb"); // ← FIXED
 
     let resources = allocation.get(&agent).unwrap();
     assert_eq!(resources.len(), 2);

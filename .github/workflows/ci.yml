@@ -17,25 +17,27 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        path: agentropic-patterns
     
-    # Checkout dependencies
+    # Checkout dependencies as siblings
     - name: Checkout agentropic-core
       uses: actions/checkout@v3
       with:
         repository: agentropic/agentropic-core
-        path: ../agentropic-core
+        path: agentropic-core
     
     - name: Checkout agentropic-messaging
       uses: actions/checkout@v3
       with:
         repository: agentropic/agentropic-messaging
-        path: ../agentropic-messaging
+        path: agentropic-messaging
     
     - name: Checkout agentropic-cognition
       uses: actions/checkout@v3
       with:
         repository: agentropic/agentropic-cognition
-        path: ../agentropic-cognition
+        path: agentropic-cognition
     
     - name: Install Rust toolchain
       uses: dtolnay/rust-toolchain@stable
@@ -44,23 +46,32 @@ jobs:
     
     - name: Cache dependencies
       uses: Swatinem/rust-cache@v2
+      with:
+        workspaces: agentropic-patterns
     
     - name: Check formatting
+      working-directory: agentropic-patterns
       run: cargo fmt --all -- --check
     
     - name: Build
+      working-directory: agentropic-patterns
       run: cargo build --verbose
     
     - name: Run Clippy
+      working-directory: agentropic-patterns
       run: cargo clippy --all-targets --all-features -- -D warnings
     
     - name: Run tests
+      working-directory: agentropic-patterns
       run: cargo test --verbose
     
     - name: Run examples
+      working-directory: agentropic-patterns
       run: |
         cargo run --example hierarchy_example
         cargo run --example swarm_example
         cargo run --example market_example
         cargo run --example coalition_example
         cargo run --example blackboard_example
+
+

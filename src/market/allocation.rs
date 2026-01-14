@@ -19,7 +19,7 @@ impl Allocation {
     pub fn allocate(&mut self, agent_id: AgentId, resource: impl Into<String>) {
         self.allocations
             .entry(agent_id)
-            .or_insert_with(Vec::new)
+            .or_default() // ← FIXED: Changed from or_insert_with(Vec::new)
             .push(resource.into());
     }
 

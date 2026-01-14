@@ -20,12 +20,12 @@ fn main() {
     let manager = AgentId::new();
     let worker = AgentId::new();
 
-    hierarchy.assign_agent(ceo.clone(), ceo_level);
-    hierarchy.assign_agent(manager.clone(), manager_level);
-    hierarchy.assign_agent(worker.clone(), worker_level);
+    hierarchy.assign_agent(ceo, ceo_level); // ← FIXED
+    hierarchy.assign_agent(manager, manager_level); // ← FIXED
+    hierarchy.assign_agent(worker, worker_level); // ← FIXED
 
     // Delegate task
-    let delegation = Delegation::new(ceo.clone(), manager.clone(), "implement_strategy", 2);
+    let delegation = Delegation::new(ceo, manager, "implement_strategy", 2); // ← FIXED
     hierarchy.delegate(delegation);
 
     println!("Hierarchy: {}", hierarchy.name());

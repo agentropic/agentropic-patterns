@@ -22,8 +22,8 @@ impl Holarchy {
 
     /// Add a holon
     pub fn add_holon(&mut self, holon: Holon) {
-        let id = holon.id().clone();
-        self.holons.insert(id.clone(), holon);
+        let id = *holon.id(); // ← FIXED: Use dereference instead of clone
+        self.holons.insert(id, holon); // ← FIXED: Removed .clone()
 
         // Set as root if first holon
         if self.root.is_none() {

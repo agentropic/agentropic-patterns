@@ -30,7 +30,7 @@ fn delegation() {
     let manager = AgentId::new();
     let worker = AgentId::new();
 
-    let delegation = Delegation::new(manager.clone(), worker.clone(), "process_orders", 2);
+    let delegation = Delegation::new(manager, worker, "process_orders", 2); // ← FIXED
 
     assert_eq!(delegation.from(), &manager);
     assert_eq!(delegation.to(), &worker);

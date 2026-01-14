@@ -1,9 +1,9 @@
-﻿//! Federation governance patterns
+//! Federation governance patterns
 
-/// Federation structure
-pub mod federation;
 /// Federation policies
 pub mod policy;
+/// Federation structure
+pub mod structure;
 
-pub use federation::Federation;
 pub use policy::{Policy, PolicyType};
+pub use structure::Federation;
